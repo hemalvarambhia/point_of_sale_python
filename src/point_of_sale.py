@@ -11,7 +11,5 @@ class PointOfSale:
         self.display.text = price
 
     def __price_for_barcode(self, barcode):
-        if barcode == "54321":
-            return "£0.99"
-        else:
-            return "£2.00"
+        prices_by_barcode = { '54321': '£0.99', '12345': '£2.00'}
+        return prices_by_barcode[barcode]
