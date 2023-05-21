@@ -14,6 +14,10 @@ class SellOneItemTest(unittest.TestCase):
     def test_sell_one_item_when_item_is_not_found(self):
         pass
 
+    @pytest.mark.skip(reason = "Test list")
+    def test_no_barcode(self):
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()
