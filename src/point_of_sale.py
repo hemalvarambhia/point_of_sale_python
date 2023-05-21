@@ -5,7 +5,7 @@ class PointOfSale:
     def on_barcode(self, barcode):
         if barcode == "54321":
             price = "£0.99"
-            self.display.text = price
         else:
             price = "£2.00"
-            self.display.text = price
+
+        self.display.text = price
