@@ -3,11 +3,7 @@ class PointOfSale:
         self.display = display
 
     def on_barcode(self, barcode):
-        if barcode == "54321":
-            price = self.__price_for_barcode(barcode)
-        else:
-            price = self.__price_for_barcode(barcode)
-
+        price = self.__price_for_barcode(barcode)
         self.display.text = price
 
     def __price_for_barcode(self, barcode):
