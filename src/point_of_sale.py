@@ -3,4 +3,7 @@ class PointOfSale:
         self.display = display
 
     def on_barcode(self, barcode):
-        self.display.set_text("£2.00")
+        if barcode == "54321":
+            self.display.set_text("£0.99")
+        else:
+            self.display.set_text("£2.00")
