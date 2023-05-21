@@ -11,7 +11,7 @@ class SellOneItemTest(unittest.TestCase):
 
         point_of_sale.on_barcode("12345")
 
-        self.assertEqual(display.text, "£2.00")
+        self.assertEqual(display.text, "£2.00", "Expected display to show £2.00 but got " + str(display))
 
     @pytest.mark.skip(reason="Test list")
     def test_sell_any_one_item_when_item_is_found(self):

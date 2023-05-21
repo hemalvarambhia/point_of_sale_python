@@ -4,4 +4,4 @@ class Display:
         self.text = "£2.00"
 
     def __str__(self):
-        "Display(text:)"
+        return "Display(text: " + self.text +")"
