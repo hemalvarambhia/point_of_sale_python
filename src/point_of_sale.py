@@ -3,8 +3,8 @@ class PointOfSale:
         self.display = display
 
     def on_barcode(self, barcode):
-        price = self.__price_of_product_with_barcode(barcode)
-        self.display.text = price
+        formatted_price = self.__price_of_product_with_barcode(barcode)
+        self.display.text = formatted_price
 
     @staticmethod
     def __price_of_product_with_barcode(barcode):
