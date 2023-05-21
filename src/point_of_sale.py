@@ -4,7 +4,7 @@ class PointOfSale:
 
     def on_barcode(self, barcode):
         price = self.__price_of_product_with_barcode(barcode)
-        formatted_price = PointOfSale.__format_price(price)
+        formatted_price = self.display.format_price(price)
         self.display.text = formatted_price
 
     @staticmethod
