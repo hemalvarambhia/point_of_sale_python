@@ -11,7 +11,3 @@ class PointOfSale:
     def __price_of_product_with_barcode(barcode):
         prices_by_barcode = {"54321": 0.99, "12345": 2.00}
         return prices_by_barcode[barcode]
-
-    @staticmethod
-    def __format_price(price):
-        return "£" + "%0.2f" % (price)
