@@ -23,7 +23,12 @@ class SellOneItemTest(unittest.TestCase):
 
     @pytest.mark.skip(reason = "Test list")
     def test_sell_one_item_when_item_is_not_found(self):
-        pass
+        display = Display()
+        point_of_sale = PointOfSale(display, {"11111": 1.50, "77777": 12.01})
+
+        point_of_sale.on_barcode("00000")
+
+        self.assertEqual(display.text, "Product with barcode 00000 not found")
 
     @pytest.mark.skip(reason = "Test list")
     def test_no_barcode(self):
