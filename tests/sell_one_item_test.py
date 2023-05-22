@@ -7,7 +7,7 @@ from src.point_of_sale import PointOfSale
 class SellOneItemTest(unittest.TestCase):
     def test_sell_one_item_when_item_is_found(self):
         display = Display()
-        point_of_sale = PointOfSale(display)
+        point_of_sale = PointOfSale(display, {"54321": 0.99, "12345": 2.00})
 
         point_of_sale.on_barcode("12345")
 
@@ -15,7 +15,7 @@ class SellOneItemTest(unittest.TestCase):
 
     def test_sell_any_one_item_when_item_is_found(self):
         display = Display()
-        point_of_sale = PointOfSale(display)
+        point_of_sale = PointOfSale(display, {"54321": 0.99, "12345": 2.00})
 
         point_of_sale.on_barcode("54321")
 
