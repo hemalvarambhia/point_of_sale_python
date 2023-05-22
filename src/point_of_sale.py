@@ -1,7 +1,9 @@
 class PointOfSale:
-    def __init__(self, display):
+    def __init__(self, display, catalog=None):
+        if catalog is None:
+            catalog = {"54321": 0.99, "12345": 2.00}
         self.display = display
-        self.prices_by_barcode = {"54321": 0.99, "12345": 2.00}
+        self.prices_by_barcode = catalog
 
     def on_barcode(self, barcode):
         price = self.prices_by_barcode[barcode]
