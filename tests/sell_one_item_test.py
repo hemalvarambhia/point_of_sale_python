@@ -39,7 +39,12 @@ class SellOneItemTest(unittest.TestCase):
 
     @pytest.mark.skip(reason = "Test list")
     def test_no_barcode(self):
-        pass
+        display = Display()
+        point_of_sale = PointOfSale(display, {"85439": 1.50, "83843": 12.01})
+
+        point_of_sale.on_barcode('')
+
+        self.assertEqual(display.text, 'No barcode scanned')
 
 
 if __name__ == '__main__':
