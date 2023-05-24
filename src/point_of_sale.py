@@ -5,7 +5,7 @@ class PointOfSale:
 
     def on_barcode(self, barcode):
         if barcode not in self.prices_by_barcode:
-            self.display.text = 'Product with barcode 00000 not found'
+            self.display.text = 'Product with barcode %s not found' % barcode
         else:
             price = self.prices_by_barcode[barcode]
             self.display.display_price(price)
