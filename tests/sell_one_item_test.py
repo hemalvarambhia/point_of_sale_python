@@ -21,7 +21,6 @@ class SellOneItemTest(unittest.TestCase):
 
         self.assertEqual(display.text, "£0.99", "Expected display to show £0.99 but got " + str(display))
 
-    @pytest.mark.skip(reason = "Test list")
     def test_sell_one_item_when_item_is_not_found(self):
         display = Display()
         point_of_sale = PointOfSale(display, {"11111": 1.50, "77777": 12.01})
