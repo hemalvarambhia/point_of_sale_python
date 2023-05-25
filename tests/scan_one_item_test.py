@@ -1,5 +1,4 @@
 import unittest
-import pytest
 from src.display import Display
 from src.point_of_sale import PointOfSale
 

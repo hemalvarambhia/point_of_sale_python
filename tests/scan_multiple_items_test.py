@@ -1,5 +1,4 @@
 import unittest
-import pytest
 from src.display import Display
 from src.point_of_sale import PointOfSale
 
@@ -38,7 +37,6 @@ class ScanMultipleItems(unittest.TestCase):
         point_of_sale.on_barcode('98765')
         self.assertEqual(display.text, 'Product with barcode 98765 not found')
 
-    @pytest.mark.skip(reason='Test list')
     def test_scanning_three_items_when_all_are_found(self):
         display = Display()
         point_of_sale = PointOfSale(display, {'12345': 300.00, '54321': 100.01, '55555': 10.12})
