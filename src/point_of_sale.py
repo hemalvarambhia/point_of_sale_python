@@ -5,7 +5,7 @@ class PointOfSale:
 
     def on_barcode(self, barcode):
         if barcode == '':
-            self.display.text = 'No barcode scanned'
+            self.display.display_no_barcode_message()
             return
 
         if barcode not in self.catalogue:

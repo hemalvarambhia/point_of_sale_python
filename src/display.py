@@ -13,5 +13,8 @@ class Display:
     def display_product_not_found_message(self, barcode):
         self.text = 'Product with barcode %s not found' % barcode
 
+    def display_no_barcode_message(self):
+        self.text = 'No barcode scanned'
+
     def __str__(self):
         return "Display(text: " + self.text + ")"
