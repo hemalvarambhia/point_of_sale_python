@@ -2,7 +2,7 @@ import unittest
 import pytest
 
 
-class MyTestCase(unittest.TestCase):
+class ScanMultipleItems(unittest.TestCase):
     @pytest.mark.skip(reason='Test list')
     def test_scanning_two_items_when_both_are_found(self):
         pass
