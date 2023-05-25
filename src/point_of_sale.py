@@ -15,4 +15,4 @@ class PointOfSale:
             self.display.display_price(price)
 
     def on_total(self):
-        self.display.text = 'Total: £3.99'
+        self.display.text = 'Total: £%0.2f' % 3.99
