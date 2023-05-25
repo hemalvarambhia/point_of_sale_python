@@ -18,9 +18,15 @@ class ScanMultipleItems(unittest.TestCase):
         point_of_sale.on_barcode('33333')
         self.assertEqual(display.text, "£0.20")
 
-    @pytest.mark.skip(reason='Test list')
     def test_scanning_two_items_but_only_one_is_found(self):
-        pass
+        display = Display()
+        point_of_sale = PointOfSale(display, {'12311': 2.11, '98434': 0.01})
+
+        point_of_sale.on_barcode('57674')
+        self.assertEqual(display.text, 'Product with barcode 57674 not found')
+
+        point_of_sale.on_barcode('12311')
+        self.assertEqual(display.text, '£2.11')
 
     @pytest.mark.skip(reason='Test list')
     def test_scanning_two_items_when_none_are_found(self):
