@@ -4,7 +4,7 @@ from src.display import Display
 from src.point_of_sale import PointOfSale
 
 
-class SellOneItemTest(unittest.TestCase):
+class ScanOneItemTest(unittest.TestCase):
     def test_when_item_is_found(self):
         display = Display()
         point_of_sale = PointOfSale(display, {"54321": 0.99, "12345": 2.00})
