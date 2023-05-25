@@ -40,18 +40,18 @@ class ScanMultipleItems(unittest.TestCase):
 
     @pytest.mark.skip(reason='Test list')
     def test_scanning_three_items_when_all_are_found(self):
-        pass
+        display = Display()
+        point_of_sale = PointOfSale(display, {'12345': 300.00, '54321': 100.01, '55555': 10.12})
 
-    @pytest.mark.skip(reason='Test list')
-    def test_scanning_three_items_when_all_but_one_are_found(self):
-        pass
+        point_of_sale.on_barcode('12345')
+        self.assertEqual(display.text, '£300.00')
 
-    @pytest.mark.skip(reason='Test list')
-    def test_scanning_three_items_when_only_one_is_found(self):
-        pass
+        point_of_sale.on_barcode('54321')
+        self.assertEqual(display.text, '£100.01')
 
-    def test_scanning_three_items_when_none_are_found(self):
-        pass
+        point_of_sale.on_barcode('55555')
+        self.assertEqual(display.text, '£10.12')
+
 
 
 if __name__ == '__main__':
