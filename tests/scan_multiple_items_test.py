@@ -28,9 +28,15 @@ class ScanMultipleItems(unittest.TestCase):
         point_of_sale.on_barcode('12311')
         self.assertEqual(display.text, '£2.11')
 
-    @pytest.mark.skip(reason='Test list')
     def test_scanning_two_items_when_none_are_found(self):
-        pass
+        display = Display()
+        point_of_sale = PointOfSale(display, {'12311': 2.11, '98434': 0.01})
+
+        point_of_sale.on_barcode('99999')
+        self.assertEqual(display.text, 'Product with barcode 99999 not found')
+
+        point_of_sale.on_barcode('98765')
+        self.assertEqual(display.text, 'Product with barcode 98765 not found')
 
     @pytest.mark.skip(reason='Test list')
     def test_scanning_three_items_when_all_are_found(self):
