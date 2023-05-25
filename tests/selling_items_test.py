@@ -1,11 +1,20 @@
 import unittest
 import pytest
+from src.display import Display
+from src.point_of_sale import PointOfSale
 
 
 class SellingItemsTest(unittest.TestCase):
     @pytest.mark.skip(reason='Test list')
     def test_selling_one_item(self):
-        pass
+        display = Display()
+        point_of_sale = PointOfSale(display, {"54321": 0.99, "12345": 3.99})
+
+        point_of_sale.on_barcode("12345")
+
+        point_of_sale.on_total()
+
+        self.assertEqual(display.text, "Total: £3.99", "Expected display to show £3.99 but got " + str(display))
 
     @pytest.mark.skip(reason='Test list')
     def test_selling_one_item_and_product_is_not_found(self):
