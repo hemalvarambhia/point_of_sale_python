@@ -5,7 +5,6 @@ from src.point_of_sale import PointOfSale
 
 
 class SellingItemsTest(unittest.TestCase):
-    @pytest.mark.skip(reason='Test list')
     def test_selling_one_item(self):
         display = Display()
         point_of_sale = PointOfSale(display, {"54321": 0.99, "12345": 3.99})

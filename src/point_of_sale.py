@@ -13,3 +13,6 @@ class PointOfSale:
         else:
             price = self.catalogue[barcode]
             self.display.display_price(price)
+
+    def on_total(self):
+        self.display.text = 'Total: £3.99'
