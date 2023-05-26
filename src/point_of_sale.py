@@ -17,4 +17,7 @@ class PointOfSale:
             self.display.display_price(price)
 
     def on_total(self):
-        self.display.text = 'Total: £%0.2f' % self.prices_of_scanned_items[0]
+        if len(self.prices_of_scanned_items) == 0:
+            self.display.text = 'Nothing scanned. Please try scanning a product'
+        else:
+            self.display.text = 'Total: £%0.2f' % self.prices_of_scanned_items[0]

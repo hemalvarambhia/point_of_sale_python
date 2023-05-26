@@ -15,9 +15,15 @@ class SellingItemsTest(unittest.TestCase):
 
         self.assertEqual(display.text, "Total: £3.99", "Expected display to show £3.99 but got " + str(display))
 
-    @pytest.mark.skip(reason='Test list')
     def test_selling_one_item_and_product_is_not_found(self):
-        pass
+        display = Display()
+        point_of_sale = PointOfSale(display, {"93457": 0.99, "58043": 3.99})
+
+        point_of_sale.on_barcode("99999")
+
+        point_of_sale.on_total()
+
+        self.assertEqual(display.text, "Nothing scanned. Please try scanning a product")
 
     @pytest.mark.skip(reason='Test list')
     def test_selling_two_items_when_all_are_found(self):
