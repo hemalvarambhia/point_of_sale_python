@@ -35,7 +35,5 @@ class FormattingMonetaryAmountsTest(unittest.TestCase):
     def test_thousands_of_pounds_precisely(self):
         pass
 
-
-
 if __name__ == '__main__':
     unittest.main()
