@@ -28,7 +28,7 @@ class FormattingMonetaryAmountsTest(unittest.TestCase):
         pass
 
     @pytest.mark.skip(reason='Test list')
-    def test_nine_hundred_and_ninety_nice_pounds_precisely(self):
+    def test_nine_hundred_and_ninety_nine_pounds_precisely(self):
         pass
 
     @pytest.mark.skip(reason='Test list')
