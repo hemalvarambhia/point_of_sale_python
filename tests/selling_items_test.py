@@ -8,7 +8,6 @@ class SellingItemsTest(unittest.TestCase):
     def test_selling_one_item(self):
         display = Display()
         point_of_sale = PointOfSale(display, {"54321": 0.99, "12345": 3.99})
-
         point_of_sale.on_barcode("12345")
 
         point_of_sale.on_total()
@@ -18,7 +17,6 @@ class SellingItemsTest(unittest.TestCase):
     def test_selling_one_item_and_product_is_not_found(self):
         display = Display()
         point_of_sale = PointOfSale(display, {"93457": 0.99, "58043": 3.99})
-
         point_of_sale.on_barcode("99999")
 
         point_of_sale.on_total()
@@ -28,7 +26,6 @@ class SellingItemsTest(unittest.TestCase):
     def test_selling_two_items_when_all_are_found(self):
         display = Display()
         point_of_sale = PointOfSale(display, {"32323": 10.99, "84583": 2.00})
-
         point_of_sale.on_barcode("32323")
         point_of_sale.on_barcode("84583")
 
@@ -39,7 +36,6 @@ class SellingItemsTest(unittest.TestCase):
     def test_scanning_two_items_items_when_only_one_is_found(self):
         display = Display()
         point_of_sale = PointOfSale(display, {"89999": 108.01})
-
         point_of_sale.on_barcode("44444")
         point_of_sale.on_barcode("89999")
 
