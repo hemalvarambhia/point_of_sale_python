@@ -11,7 +11,8 @@ class Display:
         if price <= 999.99:
             return "£" + "%0.2f" % price
         else:
-            return '£1,000.00'
+            formatted = "%0.2f" % price
+            return '£' + formatted[:1] + ',' + formatted[1:]
 
     def display_product_not_found_message(self, barcode):
         self.display_message('Product with barcode %s not found' % barcode)
