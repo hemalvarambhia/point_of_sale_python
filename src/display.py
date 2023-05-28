@@ -7,9 +7,6 @@ class Display:
         formatted_price = Display.formatted_price(price)
         self.text = formatted_price
 
-    def format_price(self, price):
-        return Display.formatted_price(price)
-
     @staticmethod
     def formatted_price(price):
         return "£" + "%0.2f" % price
