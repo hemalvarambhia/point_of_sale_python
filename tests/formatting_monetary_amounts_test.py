@@ -1,11 +1,15 @@
 import unittest
 import pytest
+from src.display import Display
 
 
 class FormattingMonetaryAmountsTest(unittest.TestCase):
-    @pytest.mark.skip(reason = 'Test list')
     def test_amount_under_ten_pence(self):
-        pass
+        display = Display()
+
+        formatted_price = display.format_price(0.02)
+
+        self.assertEqual(formatted_price, '£0.02')
 
     @pytest.mark.skip(reason='Test list')
     def test_tens_of_pence(self):
