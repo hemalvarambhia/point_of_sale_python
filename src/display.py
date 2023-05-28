@@ -4,14 +4,14 @@ class Display:
 
 
     def display_price(self, price):
-        formatted_price = self.format_price(price)
+        formatted_price = Display.formatted_price(price)
         self.text = formatted_price
 
     def format_price(self, price):
         return Display.formatted_price(price)
 
-    @classmethod
-    def formatted_price(cls, price):
+    @staticmethod
+    def formatted_price(price):
         return "£" + "%0.2f" % price
 
     def display_product_not_found_message(self, barcode):
