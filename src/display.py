@@ -8,6 +8,10 @@ class Display:
         self.text = formatted_price
 
     def format_price(self, price):
+        return Display.formatted_price(price)
+
+    @classmethod
+    def formatted_price(cls, price):
         return "£" + "%0.2f" % price
 
     def display_product_not_found_message(self, barcode):
