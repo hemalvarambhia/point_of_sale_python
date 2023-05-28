@@ -2,7 +2,6 @@ class Display:
     def __init__(self):
         self.text = ''
 
-
     def display_price(self, price):
         formatted_price = Display.formatted_price(price)
         self.display_message(formatted_price)
