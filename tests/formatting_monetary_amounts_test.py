@@ -5,7 +5,6 @@ from src.display import Display
 
 class FormattingMonetaryAmountsTest(unittest.TestCase):
     def test_amount_under_ten_pence(self):
-
         formatted_price = Display.formatted_price(0.02)
 
         self.assertEqual(formatted_price, '£0.02')
