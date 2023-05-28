@@ -9,9 +9,10 @@ class FormattingMonetaryAmountsTest(unittest.TestCase):
 
         self.assertEqual(formatted_price, '£0.02')
 
-    @pytest.mark.skip(reason='Test list')
     def test_tens_of_pence(self):
-        pass
+        formatted_price = Display.formatted_price(0.91)
+
+        self.assertEqual(formatted_price, '£0.91')
 
     @pytest.mark.skip(reason='Test list')
     def test_tens_of_pounds_and_some_pence(self):
