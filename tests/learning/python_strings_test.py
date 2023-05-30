@@ -15,6 +15,10 @@ class PythonStringsTest(unittest.TestCase):
         matches = re.findall(r'\d{1,3}', '1000'[::-1])
         self.assertEqual(['000', '1'], matches)
 
+    def test_joining_strings_in_an_array(self):
+        joined = ','.join(['000', '1'])[::-1]
+        self.assertEqual('1,000', joined)
+
     @pytest.mark.skip(reason = 'Test list')
     def test_joining_elements_of_an_array_into_a_string(self):
         pass
