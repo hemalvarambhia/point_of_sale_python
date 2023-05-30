@@ -8,7 +8,9 @@ class PythonStringsTest(unittest.TestCase):
         self.assertEqual('0001', '1000'[::-1])
 
     def test_finding_all_parts_matching_a_regular_expression(self):
-        matches = re.findall(r'\d{1,3}', '1000'[::-1])
+        reversed = '1000'[::-1]
+        matches = re.findall(r'\d{1,3}', reversed)
+
         self.assertEqual(['000', '1'], matches)
 
     def test_joining_strings_in_an_array(self):
