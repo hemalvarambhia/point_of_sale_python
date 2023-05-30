@@ -39,6 +39,10 @@ class PythonStringsTest(unittest.TestCase):
 
         self.assertEqual('1000', pound_part)
 
+    @pytest.mark.skip(reason = 'Test list')
+    def test_calculating_pence_part_of_a_monetary_amount(self):
+        pass
+
 
 
 if __name__ == '__main__':
