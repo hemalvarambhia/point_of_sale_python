@@ -32,6 +32,14 @@ class PythonStringsTest(unittest.TestCase):
         position_of_decimal_point = '1000000.99'.index('.', 0, -1)
         self.assertEqual(7, position_of_decimal_point)
 
+    def test_calculating_pound_part_of_a_monetary_amount(self):
+        position_of_decimal_point = '1000.99'.index('.', 0, -1)
+
+        pound_part = '1000.99'[:position_of_decimal_point]
+
+        self.assertEqual('1000', pound_part)
+
+
 
 if __name__ == '__main__':
     unittest.main()
