@@ -25,7 +25,7 @@ class PythonStringsTest(unittest.TestCase):
 
         self.assertEqual('1,000', joined_with_comma)
 
-    def test_extracting_a_pound_and_pence_part(self):
+    def test_calculating_position_of_decimal_point(self):
         position_of_decimal_point = '1000.99'.index('.', 0, -1)
         self.assertEqual(4, position_of_decimal_point)
 
