@@ -40,9 +40,13 @@ class PythonStringsTest(unittest.TestCase):
 
         self.assertEqual('1000', pound_part)
 
-    @pytest.mark.skip(reason = 'Test list')
     def test_calculating_pence_part_of_a_monetary_amount(self):
-        pass
+        monetary_amount = '54321.00'
+
+        position_of_decimal_point = monetary_amount.index('.', 0, -1)
+        pence_part = monetary_amount[position_of_decimal_point + 1:]
+
+        self.assertEqual('00', pence_part)
 
 
 
