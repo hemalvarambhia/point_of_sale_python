@@ -18,5 +18,13 @@ class PythonStringsTest(unittest.TestCase):
 
         self.assertEqual('1,000', joined)
 
+    def test_we_can_format_money_in_the_thousands(self):
+        reversed = '1000'[::-1]
+        decomposed = re.findall(r'\d{1,3}', reversed)
+        joined_with_comma = ','.join(decomposed[::-1])
+
+        self.assertEqual('1,000', joined_with_comma)
+
+
 if __name__ == '__main__':
     unittest.main()
