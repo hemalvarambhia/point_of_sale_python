@@ -1,3 +1,4 @@
+import re
 class Display:
     def __init__(self):
         self.text = ''
@@ -14,7 +15,10 @@ class Display:
             formatted = "%0.2f" % price
             after_decimal_point = formatted.index('.') + 1
             pence = formatted[after_decimal_point:]
-            return '£1,000.' + pence
+            reversed = '1000'[::-1]
+            decomposed = re.findall(r'\d{1,3}', reversed)
+            joined_with_comma = ','.join(decomposed[::-1])
+            return '£' +joined_with_comma + '.' + pence
 
     def display_product_not_found_message(self, barcode):
         self.display_message('Product with barcode %s not found' % barcode)
