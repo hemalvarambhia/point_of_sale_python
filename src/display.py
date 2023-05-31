@@ -23,7 +23,7 @@ class Display:
             joined_with_comma = ','.join(decomposed)[::-1]
             return '£' + joined_with_comma + '.' + pence
         else:
-            joined_with_comma = ','.join(decomposed[::-1])
+            joined_with_comma = ','.join(decomposed)[::-1]
             return '£' + joined_with_comma + '.' + pence
 
     def display_product_not_found_message(self, barcode):
