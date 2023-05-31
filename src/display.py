@@ -20,7 +20,7 @@ class Display:
         decomposed = re.findall(r'\d{1,3}', pound_reversed)
 
         if price <= 999.99:
-            joined_with_comma = ','.join(decomposed[::-1])[::-1]
+            joined_with_comma = ','.join(decomposed)[::-1]
             return '£' + joined_with_comma + '.' + pence
         else:
             joined_with_comma = ','.join(decomposed[::-1])
