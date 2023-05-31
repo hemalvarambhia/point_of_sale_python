@@ -11,19 +11,14 @@ class Display:
 
     @staticmethod
     def formatted_price(price):
+        formatted = "%0.2f" % price
+        position_of_decimal_place = formatted.index('.')
+        after_decimal_point = position_of_decimal_place + 1
+        pence = formatted[after_decimal_point:]
+        pound = formatted[:position_of_decimal_place]
         if price <= 999.99:
-            formatted = "%0.2f" % price
-            position_of_decimal_place = formatted.index('.')
-            after_decimal_point = position_of_decimal_place + 1
-            pence = formatted[after_decimal_point:]
-            pound = formatted[:position_of_decimal_place]
             return '£' + pound + '.' + pence
         else:
-            formatted = "%0.2f" % price
-            position_of_decimal_place = formatted.index('.')
-            after_decimal_point = position_of_decimal_place + 1
-            pence = formatted[after_decimal_point:]
-            pound = formatted[:position_of_decimal_place]
             pound_reversed = pound[::-1]
             decomposed = re.findall(r'\d{1,3}', pound_reversed)
             joined_with_comma = ','.join(decomposed[::-1])
