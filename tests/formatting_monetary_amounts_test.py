@@ -39,5 +39,10 @@ class FormattingMonetaryAmountsTest(unittest.TestCase):
 
         self.assertEqual(formatted_price, '£1,000.00')
 
+    def test_thousands_of_pounds_and_some_pence(self):
+        formatted_price = Display.formatted_price(1000.99)
+
+        self.assertEqual(formatted_price, '£1,000.99')
+
 if __name__ == '__main__':
     unittest.main()
