@@ -11,20 +11,20 @@ class Display:
 
     @staticmethod
     def formatted_price(price):
+        pence, pound = Display.decompose_to_pounds_and_pence(price)
+        pound_reversed = pound[::-1]
+        decomposed = re.findall(r'\d{1,3}', pound_reversed)
+        joined_with_comma = ','.join(decomposed)[::-1]
+        return '£' + joined_with_comma + '.' + pence
+
+    @staticmethod
+    def decompose_to_pounds_and_pence(price):
         formatted = "%0.2f" % price
         position_of_decimal_place = formatted.index('.')
         after_decimal_point = position_of_decimal_place + 1
         pence = formatted[after_decimal_point:]
         pound = formatted[:position_of_decimal_place]
-        pound_reversed = pound[::-1]
-        decomposed = re.findall(r'\d{1,3}', pound_reversed)
-
-        if price <= 999.99:
-            joined_with_comma = ','.join(decomposed)[::-1]
-            return '£' + joined_with_comma + '.' + pence
-        else:
-            joined_with_comma = ','.join(decomposed)[::-1]
-            return '£' + joined_with_comma + '.' + pence
+        return pence, pound
 
     def display_product_not_found_message(self, barcode):
         self.display_message('Product with barcode %s not found' % barcode)
