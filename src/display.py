@@ -15,7 +15,8 @@ class Display:
             formatted = "%0.2f" % price
             after_decimal_point = formatted.index('.') + 1
             pence = formatted[after_decimal_point:]
-            reversed = '1000'[::-1]
+            pound = formatted[:formatted.index('.')]
+            reversed = pound[::-1]
             decomposed = re.findall(r'\d{1,3}', reversed)
             joined_with_comma = ','.join(decomposed[::-1])
             return '£' +joined_with_comma + '.' + pence
