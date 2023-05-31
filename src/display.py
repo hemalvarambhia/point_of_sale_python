@@ -15,7 +15,7 @@ class Display:
         pound_reversed = pound[::-1]
         decomposed = re.findall(r'\d{1,3}', pound_reversed)
         joined_with_comma = ','.join(decomposed)[::-1]
-        return '£' + joined_with_comma + '.' + pence
+        return '£%s.%s' % (joined_with_comma, pence)
 
     @staticmethod
     def decompose_to_pounds_and_pence(price):
