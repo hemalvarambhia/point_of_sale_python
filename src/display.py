@@ -13,7 +13,8 @@ class Display:
         else:
             formatted = "%0.2f" % price
             after_decimal_point = formatted.index('.') + 1
-            return '£1,000.' + formatted[after_decimal_point:]
+            pence = formatted[after_decimal_point:]
+            return '£1,000.' + pence
 
     def display_product_not_found_message(self, barcode):
         self.display_message('Product with barcode %s not found' % barcode)
