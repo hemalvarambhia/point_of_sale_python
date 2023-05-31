@@ -1,4 +1,6 @@
 import re
+
+
 class Display:
     def __init__(self):
         self.text = ''
@@ -19,7 +21,7 @@ class Display:
             reversed = pound[::-1]
             decomposed = re.findall(r'\d{1,3}', reversed)
             joined_with_comma = ','.join(decomposed[::-1])
-            return '£' +joined_with_comma + '.' + pence
+            return '£' + joined_with_comma + '.' + pence
 
     def display_product_not_found_message(self, barcode):
         self.display_message('Product with barcode %s not found' % barcode)
