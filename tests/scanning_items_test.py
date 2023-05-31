@@ -88,6 +88,5 @@ class ScanningItemsTest(unittest.TestCase):
         self.assertEqual(display.text, '£10.12')
 
 
-
 if __name__ == '__main__':
     unittest.main()

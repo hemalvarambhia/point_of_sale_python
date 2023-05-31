@@ -54,7 +54,6 @@ class SellingItemsTest(unittest.TestCase):
 
         self.assertEqual(display.text, "Nothing scanned. Please try scanning a product")
 
-
     def test_selling_three_items_when_all_are_found(self):
         display = Display()
         point_of_sale = PointOfSale(display, {"09911": 100.01, "21199": 51.75, "31394": 100.02})
