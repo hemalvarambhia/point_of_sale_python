@@ -17,7 +17,10 @@ class Display:
         pence = formatted[after_decimal_point:]
         pound = formatted[:position_of_decimal_place]
         if price <= 999.99:
-            return '£' + pound + '.' + pence
+            pound_reversed = pound[::-1]
+            decomposed = re.findall(r'\d{1,3}', pound_reversed)
+            joined_with_comma = ','.join(decomposed[::-1])[::-1]
+            return '£' + joined_with_comma + '.' + pence
         else:
             pound_reversed = pound[::-1]
             decomposed = re.findall(r'\d{1,3}', pound_reversed)
