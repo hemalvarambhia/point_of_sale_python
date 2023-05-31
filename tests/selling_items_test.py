@@ -48,6 +48,7 @@ class SellingItemsTest(unittest.TestCase):
         point_of_sale = PointOfSale(display, {"09876": 108.01})
         point_of_sale.on_barcode("00000")
         point_of_sale.on_barcode("11111")
+        point_of_sale.on_barcode("22222")
 
         point_of_sale.on_total()
 
