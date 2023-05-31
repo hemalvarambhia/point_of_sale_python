@@ -55,5 +55,17 @@ class SellingItemsTest(unittest.TestCase):
         self.assertEqual(display.text, "Nothing scanned. Please try scanning a product")
 
 
+    def test_selling_three_items_when_all_are_found(self):
+        display = Display()
+        point_of_sale = PointOfSale(display, {"09911": 100.01, "21199": 51.75, "31394": 100.02})
+        point_of_sale.on_barcode("09911")
+        point_of_sale.on_barcode("21199")
+        point_of_sale.on_barcode("31394")
+
+        point_of_sale.on_total()
+
+        self.assertEqual(display.text, 'Total: £251.78')
+
+
 if __name__ == '__main__':
     unittest.main()
