@@ -12,8 +12,7 @@ class Display:
     @staticmethod
     def formatted_price(price):
         pound, pence = Display.decompose_to_pounds_and_pence(price)
-        pound_reversed = pound[::-1]
-        decomposed = re.findall(r'\d{1,3}', pound_reversed)
+        decomposed = re.findall(r'\d{1,3}', pound[::-1])
         pound_with_comma = ','.join(decomposed)[::-1]
         return '£%s.%s' % (pound_with_comma, pence)
 
