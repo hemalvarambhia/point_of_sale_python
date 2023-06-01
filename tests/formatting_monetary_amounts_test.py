@@ -49,9 +49,10 @@ class FormattingMonetaryAmountsTest(unittest.TestCase):
 
         self.assertEqual(formatted_price, '£10,000.00')
 
-    @pytest.mark.skip(reason='Test list')
     def test_hundreds_of_thousands_of_pounds_precisely(self):
-        pass
+        formatted_price = Display.formatted_price(100000.00)
+
+        self.assertEqual(formatted_price, '£100,000.00')
 
     @pytest.mark.skip(reason='Test list')
     def test_millions_of_pounds_precisely(self):
