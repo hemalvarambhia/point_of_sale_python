@@ -21,4 +21,4 @@ class PointOfSale:
             self.display.display_message('Nothing scanned. Please try scanning a product')
         else:
             total_price = sum(self.prices_of_scanned_items)
-            self.display.display_message('Total: £%0.2f' % total_price)
+            self.display.display_total(total_price)

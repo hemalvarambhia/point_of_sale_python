@@ -65,6 +65,17 @@ class SellingItemsTest(unittest.TestCase):
 
         self.assertEqual(display.text, 'Total: £251.78')
 
+    def test_selling_items_totalling_thousands_of_currency_units(self):
+        display = Display()
+        point_of_sale = PointOfSale(display, {"54321": 500.01, "98765": 510.75, "00001": 100.25})
+        point_of_sale.on_barcode("98765")
+        point_of_sale.on_barcode("00001")
+        point_of_sale.on_barcode("54321")
+
+        point_of_sale.on_total()
+
+        self.assertEqual(display.text, 'Total: £1,111.01')
+
 
 if __name__ == '__main__':
     unittest.main()

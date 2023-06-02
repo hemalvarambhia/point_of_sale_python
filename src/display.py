@@ -9,6 +9,9 @@ class Display:
         formatted_price = Display.formatted_price(price)
         self.display_message(formatted_price)
 
+    def display_total(self, total):
+        self.display_message('Total: %s' % Display.formatted_price(total))
+
     @staticmethod
     def formatted_price(price):
         pound, pence = Display.decompose_to_pounds_and_pence(price)
