@@ -5,7 +5,7 @@ import pytest
 class FindingPricesByProductBarcodeTest(unittest.TestCase):
 
     @pytest.mark.skip(reason='Test list')
-    def test_price_is_returned_when_barcode_is_in_catalog(self):
+    def test_price_is_returned_when_barcode_is_in_catalogue(self):
         pass
 
     @pytest.mark.skip(reason='Test list')
