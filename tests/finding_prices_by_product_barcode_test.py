@@ -14,7 +14,6 @@ class Catalogue:
             return None
 
 
-
 class FindingPricesByProductBarcodeTest(unittest.TestCase):
 
     def test_price_is_returned_when_barcode_is_in_catalogue(self):
