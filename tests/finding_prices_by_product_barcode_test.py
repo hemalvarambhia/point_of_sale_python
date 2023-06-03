@@ -8,7 +8,10 @@ class Catalogue:
         self.catalogue = catalogue
 
     def __getitem__(self, barcode):
-        return self.catalogue[barcode]
+        if barcode in self.catalogue:
+            return self.catalogue[barcode]
+        else:
+            return None
 
 
 
@@ -24,9 +27,10 @@ class FindingPricesByProductBarcodeTest(unittest.TestCase):
 
         self.assertEqual(catalog['55555'], 12)
 
-    @pytest.mark.skip(reason='Test list')
     def test_nothing_is_returned_when_barcode_is_not_in_catalogue(self):
-        pass
+        catalog = Catalogue({'88888': 11, '22222': 190})
+
+        self.assertEqual(catalog['99999'], None)
 
 
 if __name__ == '__main__':
