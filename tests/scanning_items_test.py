@@ -7,7 +7,7 @@ from src.catalogue import Catalogue
 class ScanningItemsTest(unittest.TestCase):
     def test_when_item_is_found(self):
         display = Display()
-        point_of_sale = PointOfSale(display, {"54321": 0.99, "12345": 2.00})
+        point_of_sale = PointOfSale(display, Catalogue({"54321": 0.99, "12345": 2.00}))
 
         point_of_sale.on_barcode("12345")
 
@@ -15,7 +15,7 @@ class ScanningItemsTest(unittest.TestCase):
 
     def test_when_any_item_is_found(self):
         display = Display()
-        point_of_sale = PointOfSale(display, {"54321": 0.99, "12345": 2.00})
+        point_of_sale = PointOfSale(display, Catalogue({"54321": 0.99, "12345": 2.00}))
 
         point_of_sale.on_barcode("54321")
 
