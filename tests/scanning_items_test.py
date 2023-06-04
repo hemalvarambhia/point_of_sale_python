@@ -42,7 +42,8 @@ class ScanningItemsTest(unittest.TestCase):
 
     def test_no_barcode(self):
         display = Display()
-        point_of_sale = PointOfSale(display, {"85439": 1.50, "83843": 12.01})
+        catalogue = Catalogue({"85439": 1.50, "83843": 12.01})
+        point_of_sale = PointOfSale(display, catalogue)
 
         point_of_sale.on_barcode('')
 
@@ -50,7 +51,8 @@ class ScanningItemsTest(unittest.TestCase):
 
     def test_scanning_two_items_when_both_are_found(self):
         display = Display()
-        point_of_sale = PointOfSale(display, {'11111': 0.99, '59385': 1.00})
+        catalogue = Catalogue({'11111': 0.99, '59385': 1.00})
+        point_of_sale = PointOfSale(display, catalogue)
 
         point_of_sale.on_barcode('11111')
         self.assertEqual(display.text, "£0.99")
@@ -60,7 +62,8 @@ class ScanningItemsTest(unittest.TestCase):
 
     def test_scanning_two_items_but_only_one_is_found(self):
         display = Display()
-        point_of_sale = PointOfSale(display, {'12311': 2.11, '98434': 0.01})
+        catalogue = Catalogue({'12311': 2.11, '98434': 0.01})
+        point_of_sale = PointOfSale(display, catalogue)
 
         point_of_sale.on_barcode('57674')
         self.assertEqual(display.text, 'Product with barcode 57674 not found')
@@ -70,7 +73,8 @@ class ScanningItemsTest(unittest.TestCase):
 
     def test_scanning_two_items_when_none_are_found(self):
         display = Display()
-        point_of_sale = PointOfSale(display, {'12311': 2.11, '98434': 0.01})
+        catalogue = Catalogue({'12311': 2.11, '98434': 0.01})
+        point_of_sale = PointOfSale(display, catalogue)
 
         point_of_sale.on_barcode('99999')
         self.assertEqual(display.text, 'Product with barcode 99999 not found')
@@ -80,7 +84,8 @@ class ScanningItemsTest(unittest.TestCase):
 
     def test_scanning_three_items_when_all_are_found(self):
         display = Display()
-        point_of_sale = PointOfSale(display, {'12345': 300.00, '54321': 100.01, '55555': 10.12})
+        catalogue = Catalogue({'12345': 300.00, '54321': 100.01, '55555': 10.12})
+        point_of_sale = PointOfSale(display, catalogue)
 
         point_of_sale.on_barcode('12345')
         self.assertEqual(display.text, '£300.00')
