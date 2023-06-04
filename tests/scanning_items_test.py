@@ -1,6 +1,7 @@
 import unittest
 from src.display import Display
 from src.point_of_sale import PointOfSale
+from src.catalogue import Catalogue
 
 
 class ScanningItemsTest(unittest.TestCase):
