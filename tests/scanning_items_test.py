@@ -34,7 +34,8 @@ class ScanningItemsTest(unittest.TestCase):
 
     def test_when_any_item_is_not_found(self):
         display = Display()
-        point_of_sale = PointOfSale(display, {"54321": 1.50, "09912": 12.01})
+        catalogue = Catalogue({"54321": 1.50, "09912": 12.01})
+        point_of_sale = PointOfSale(display, catalogue)
 
         point_of_sale.on_barcode('10011')
 
