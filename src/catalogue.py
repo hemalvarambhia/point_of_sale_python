@@ -8,6 +8,3 @@ class Catalogue:
             return self.catalogue[barcode]
         else:
             return None
-
-    def __iter__(self):
-        return self.catalogue.__iter__()
