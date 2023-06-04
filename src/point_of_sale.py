@@ -9,7 +9,8 @@ class PointOfSale:
             self.display.display_no_barcode_message()
             return
 
-        if barcode not in self.catalogue:
+        price = self.catalogue[barcode]
+        if price is None:
             self.display.display_product_not_found_message(barcode)
         else:
             price = self.catalogue[barcode]
