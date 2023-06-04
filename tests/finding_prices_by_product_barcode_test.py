@@ -19,6 +19,13 @@ class FindingPricesByProductBarcodeTest(unittest.TestCase):
 
         self.assertEqual(catalog['99999'], None)
 
+    def test_we_can_confirm_a_product_is_in_the_catalogue(self):
+        catalogue = Catalogue({'11111': 11, '55555': 190})
+
+        predicate = '55555' in catalogue
+
+        self.assertEqual(predicate, True)
+
 
 if __name__ == '__main__':
     unittest.main()
