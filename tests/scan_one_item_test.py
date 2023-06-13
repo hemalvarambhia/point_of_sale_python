@@ -1,7 +1,7 @@
 import unittest
 
 
-class SellOneItemTest(unittest.TestCase):
+class ScanOneItemTest(unittest.TestCase):
     def test_failing_hookup(self):
         self.assertEqual(1 + 1, 2)  # add assertion here
 
