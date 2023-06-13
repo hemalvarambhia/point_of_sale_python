@@ -4,7 +4,4 @@ class Catalogue:
         self.catalogue = catalogue
 
     def __getitem__(self, barcode):
-        if barcode in self.catalogue:
-            return self.catalogue[barcode]
-        else:
-            return None
+        return self.catalogue.get(barcode, None)
