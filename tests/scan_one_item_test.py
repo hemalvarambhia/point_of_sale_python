@@ -12,8 +12,6 @@ class PointOfSale:
 
 
 class ScanOneItemTest(unittest.TestCase):
-    def test_failing_hookup(self):
-        self.assertEqual(1 + 1, 2)  # add assertion here
 
     def test_scanning_one_item_that_is_in_catalogue(self):
         display = Mock()
