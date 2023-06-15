@@ -17,7 +17,6 @@ class ScanOneItemTest(unittest.TestCase):
 
     def test_scanning_one_item_that_is_in_catalogue(self):
         display = Mock()
-
         point_of_sale_terminal = PointOfSale(display)
         point_of_sale_terminal.on_barcode('12345')
 
