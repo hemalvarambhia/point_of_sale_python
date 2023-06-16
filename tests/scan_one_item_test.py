@@ -4,18 +4,23 @@ import pytest
 
 
 class PointOfSale:
-    def __init__(self, display):
+    def __init__(self, catalogue, display):
         self.display = display
+        self.catalogue = catalogue
 
     def on_barcode(self, barcode):
-        self.display.display_price('£1.99')
+        price = self.catalogue.price_for_barcode('12345')
+        text = '£%.2f' % (price / 100)
+        self.display.display_price(text)
 
 
 class ScanOneItemTest(unittest.TestCase):
 
     def test_scanning_one_item_that_is_in_catalogue(self):
         display = Mock()
-        point_of_sale_terminal = PointOfSale(display)
+        catalogue = Mock()
+        catalogue.configure_mock(**{'price_for_barcode.return_value': 199})
+        point_of_sale_terminal = PointOfSale(catalogue, display)
         point_of_sale_terminal.on_barcode('12345')
 
         display.display_price.assert_called_with('£1.99')
