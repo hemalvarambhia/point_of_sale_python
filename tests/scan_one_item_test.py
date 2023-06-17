@@ -9,7 +9,7 @@ class PointOfSale:
         self.catalogue = catalogue
 
     def on_barcode(self, barcode):
-        price = self.catalogue.price_for_barcode('12345')
+        price = self.catalogue.price_for_barcode(barcode)
         if price is None:
             self.display.display_product_not_found(barcode)
         else:
