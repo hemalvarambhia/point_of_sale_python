@@ -37,6 +37,10 @@ class ScanOneItemTest(unittest.TestCase):
 
         display.display_product_not_found.assert_called_with('56344')
 
+    @pytest.mark.skip(reason='Test list')
+    def test_scanning_empty_barcode(self):
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()
