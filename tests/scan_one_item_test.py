@@ -39,7 +39,13 @@ class ScanOneItemTest(unittest.TestCase):
 
     @pytest.mark.skip(reason='Test list')
     def test_scanning_empty_barcode(self):
-        pass
+        display = Mock()
+        catalogue = Mock()
+        catalogue.configure_mock(**{'price_for_barcode.return_value': 1299})
+        point_of_sale_terminal = PointOfSale(catalogue, display)
+        point_of_sale_terminal.on_barcode('')
+
+        display.display_empty_barcode_message.assert_called()
 
 
 if __name__ == '__main__':
