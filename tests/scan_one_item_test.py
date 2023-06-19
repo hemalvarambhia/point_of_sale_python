@@ -9,6 +9,9 @@ class PointOfSale:
         self.catalogue = catalogue
 
     def on_barcode(self, barcode):
+        if len(barcode) == 0:
+            self.display.display_empty_barcode_message()
+
         price = self.catalogue.price_for_barcode(barcode)
         if price is None:
             self.display.display_product_not_found(barcode)
@@ -37,7 +40,6 @@ class ScanOneItemTest(unittest.TestCase):
 
         display.display_product_not_found.assert_called_with('56344')
 
-    @pytest.mark.skip(reason='Test list')
     def test_scanning_empty_barcode(self):
         display = Mock()
         catalogue = Mock()
