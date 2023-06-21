@@ -2,7 +2,7 @@ class PointOfSale:
     def __init__(self, catalogue, display):
         self.display = display
         self.catalogue = catalogue
-        self.items_scanned = []
+        self.prices_of_items_scanned = []
 
     def on_barcode(self, barcode):
         if len(barcode) == 0:
@@ -12,12 +12,12 @@ class PointOfSale:
         if price is None:
             self.display.display_product_not_found(barcode)
         else:
-            self.items_scanned.append(price)
+            self.prices_of_items_scanned.append(price)
             text = '£%.2f' % (price / 100)
             self.display.display_price(text)
 
     def on_total(self):
-        if len(self.items_scanned) == 0:
+        if len(self.prices_of_items_scanned) == 0:
             self.display.display_message('Nothing scanned: please try scanning a product.')
         else:
             self.display.display_total('Total: £1.99')
