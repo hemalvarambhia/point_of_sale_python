@@ -41,9 +41,17 @@ class SellingMultipleItemsTest(unittest.TestCase):
 
         display.display_total.assert_called_with('Total: £4.00')
 
-    @pytest.mark.skip(reason='Test list')
     def test_selling_two_items_with_only_one_listed_in_catalogue(self):
-        pass
+        display = Mock()
+        catalogue = Mock()
+        catalogue.price_for_barcode.side_effect = [700, 799]
+        point_of_sale_terminal = PointOfSale(catalogue, display)
+        point_of_sale_terminal.on_barcode('00992')
+        point_of_sale_terminal.on_barcode('76543')
+
+        point_of_sale_terminal.on_total()
+
+        display.display_total.assert_called_with('Total: £14.99')
 
     @pytest.mark.skip(reason='Test list')
     def test_selling_two_items_both_not_listed_in_catalogue(self):
