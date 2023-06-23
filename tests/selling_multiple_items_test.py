@@ -66,7 +66,15 @@ class SellingMultipleItemsTest(unittest.TestCase):
         display.display_message.assert_called_with('Nothing scanned: please try scanning a product.')
 
     @pytest.mark.skip(reason='Test list')
-    def test_selling_two_items_both_listed_in_catalogue_that_amount_to_a_thousand_currency_units(self):
+    def test_selling_an_item_listed_in_catalogue_that_amounts_to_a_thousand_currency_units(self):
+        pass
+
+    @pytest.mark.skip(reason='Test list')
+    def test_selling_an_item_listed_in_catalogue_that_amounts_to_ten_thousand_currency_units(self):
+        pass
+
+    @pytest.mark.skip(reason='Test list')
+    def test_selling_an_item_listed_in_catalogue_that_amounts_to_a_hundred_thousand_currency_units(self):
         pass
 
 
