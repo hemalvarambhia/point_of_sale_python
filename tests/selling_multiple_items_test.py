@@ -65,9 +65,16 @@ class SellingMultipleItemsTest(unittest.TestCase):
 
         display.display_message.assert_called_with('Nothing scanned: please try scanning a product.')
 
-    @pytest.mark.skip(reason='Test list')
     def test_selling_an_item_listed_in_catalogue_that_amounts_to_a_thousand_currency_units(self):
-        pass
+        display = Mock()
+        catalogue = Mock()
+        catalogue.configure_mock(**{'price_for_barcode.return_value': 100000})
+        point_of_sale_terminal = PointOfSale(catalogue, display)
+        point_of_sale_terminal.on_barcode('00132')
+
+        point_of_sale_terminal.on_total()
+
+        display.display_total.assert_called_with('Total: £1,000.00')
 
     @pytest.mark.skip(reason='Test list')
     def test_selling_an_item_listed_in_catalogue_that_amounts_to_ten_thousand_currency_units(self):
