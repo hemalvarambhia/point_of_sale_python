@@ -14,9 +14,13 @@ class FormattingMonetaryAmountsTest(unittest.TestCase):
         pass
 
     @pytest.mark.skip(reason='Test list')
-    def test_formatting_one_pound(self):
+    def test_formatting_exactly_one_pound(self):
         pass
 
     @pytest.mark.skip(reason='Test list')
     def test_formatting_amounts_between_one_pound_and_under_one_thousand_pounds(self):
+        pass
+
+    @pytest.mark.skip(reason='Test list')
+    def test_formatting_exactly_one_thousand_pounds(self):
         pass
