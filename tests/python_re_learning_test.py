@@ -12,8 +12,9 @@ class PythonReLearningTest(unittest.TestCase):
         self.assertEqual('0001', ''.join(reversed('1000')))
 
     def test_decomposing_a_monetary_amount_into_pounds_and_pence(self):
-        index_of_decimal_point = '1000.00'.index('.')
-        pounds = '1000.00'[:index_of_decimal_point]
-        pence = '1000.00'[index_of_decimal_point + 1:]
+        monetary_amount = '1000.00'
+        index_of_decimal_point = monetary_amount.index('.')
+        pounds = monetary_amount[:index_of_decimal_point]
+        pence = monetary_amount[index_of_decimal_point + 1:]
         self.assertEqual('1000', pounds)
         self.assertEqual('00', pence)
