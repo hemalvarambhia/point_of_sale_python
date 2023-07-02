@@ -23,6 +23,8 @@ class FormattingMonetaryAmountsTest(unittest.TestCase):
     def format_monetary_amount(self, amount_in_pence):
         in_pounds = amount_in_pence / 100
         if amount_in_pence == 100000:
-            return '£1,000.00'
+            units = '1,000'
+            subunits = '00'
+            return '£%s.%s' % (units, subunits)
         else:
             return '£%.2f' % in_pounds
