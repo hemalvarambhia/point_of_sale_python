@@ -25,4 +25,5 @@ class FormattingMonetaryAmountsTest(unittest.TestCase):
         pass
 
     def format_monetary_amount(self, amount_in_pence):
-        return '£0.09'
+        in_pounds = amount_in_pence / 100
+        return '£%.2f' % in_pounds
