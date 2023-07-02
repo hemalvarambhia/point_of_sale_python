@@ -4,7 +4,7 @@ import unittest
 
 class PythonReLearningTest(unittest.TestCase):
 
-    def test_splitting_thousands_after_three_zeros(self):
+    def test_splitting_thousands_of_currency_after_three_zeros(self):
         regular_expression = re.compile(r'\d{1,3}')
         self.assertEqual(['000', '1'], regular_expression.findall('0001'))
 
@@ -18,3 +18,8 @@ class PythonReLearningTest(unittest.TestCase):
         pence = monetary_amount[index_of_decimal_point + 1:]
         self.assertEqual('1000', pounds)
         self.assertEqual('00', pence)
+
+    def test_reversing_an_array(self):
+        array = list(reversed(['000', '1']))
+
+        self.assertEqual(['1', '000'], array)
