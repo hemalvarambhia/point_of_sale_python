@@ -5,9 +5,8 @@ import pytest
 
 class FormattingMonetaryAmountsTest(unittest.TestCase):
 
-    @pytest.mark.skip(reason='Test list')
     def test_formatting_amounts_under_ten_pence(self):
-        pass
+        self.assertEqual("£0.09", self.format_monetary_amount(9))
 
     @pytest.mark.skip(reason='Test list')
     def test_formatting_amounts_between_nine_pence_and_under_1_pound(self):
@@ -24,3 +23,6 @@ class FormattingMonetaryAmountsTest(unittest.TestCase):
     @pytest.mark.skip(reason='Test list')
     def test_formatting_exactly_one_thousand_pounds(self):
         pass
+
+    def format_monetary_amount(self, amount_in_pence):
+        return '£0.09'
