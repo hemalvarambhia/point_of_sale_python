@@ -37,5 +37,5 @@ class PointOfSale:
         thousands_units_pattern = re.compile(r'\d{1,3}')
         reversed_pounds = ''.join(reversed(text[:decimal_point]))
         pence = text[decimal_point + 1:]
-        formatted = ','.join(reversed(thousands_units_pattern.findall(reversed_pounds)))
-        return formatted, pence
+        formatted = ','.join(thousands_units_pattern.findall(reversed_pounds))
+        return ''.join(reversed(formatted)), pence
