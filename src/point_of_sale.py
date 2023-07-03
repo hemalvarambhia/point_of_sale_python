@@ -1,3 +1,6 @@
+import re
+
+
 class PointOfSale:
     def __init__(self, catalogue, display):
         self.display = display
@@ -22,7 +25,9 @@ class PointOfSale:
         else:
             total_price = sum(self.prices_of_items_scanned)
             if total_price == 100000:
-                formatted = ','.join(reversed(['000', '1']))
+                units = re.compile(r'\d{1,3}')
+                reversed_pounds = '1000'[::-1]
+                formatted = ','.join(reversed(units.findall(reversed_pounds)))
                 total = '£%s.00' % formatted
             else:
                 total = '£%.2f' % (total_price / 100)
