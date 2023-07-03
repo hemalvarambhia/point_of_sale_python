@@ -25,8 +25,10 @@ class PointOfSale:
         else:
             total_price = sum(self.prices_of_items_scanned)
             if total_price == 100000:
+                text = '%.2f' % (total_price / 100)
+                decimal_point = text.index('.')
                 thousands_units_pattern = re.compile(r'\d{1,3}')
-                reversed_pounds = ''.join(reversed('1000'))
+                reversed_pounds = ''.join(reversed(text[:decimal_point]))
                 formatted = ','.join(reversed(thousands_units_pattern.findall(reversed_pounds)))
                 total = '£%s.00' % formatted
             else:
