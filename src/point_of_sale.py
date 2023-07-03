@@ -28,7 +28,8 @@ class PointOfSale:
                 formatted, pence = self.__formatted(total_price)
                 total = '£%s.%s' % (formatted, pence)
             else:
-                total = '£%.2f' % (total_price / 100)
+                formatted, pence = self.__formatted(total_price)
+                total = '£%s.%s' % (formatted, pence)
             self.display.display_total('Total: %s' % total)
 
     def __formatted(self, total_price):
