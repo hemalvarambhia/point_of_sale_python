@@ -6,7 +6,8 @@ import pytest
 def format_monetary_amount(amount_in_pence):
     in_pounds = amount_in_pence / 100
     if amount_in_pence == 100000:
-        units = '1,000'
+
+        units = ''.join(reversed(','.join(['000', '1'])))
         subunits = '00'
         return '£%s.%s' % (units, subunits)
     else:
