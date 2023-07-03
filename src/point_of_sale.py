@@ -24,12 +24,8 @@ class PointOfSale:
             self.display.display_message('Nothing scanned: please try scanning a product.')
         else:
             total_price = sum(self.prices_of_items_scanned)
-            if total_price == 100000:
-                formatted, pence = self.__formatted(total_price)
-                total = '£%s.%s' % (formatted, pence)
-            else:
-                formatted, pence = self.__formatted(total_price)
-                total = '£%s.%s' % (formatted, pence)
+            formatted, pence = self.__formatted(total_price)
+            total = '£%s.%s' % (formatted, pence)
             self.display.display_total('Total: %s' % total)
 
     def __formatted(self, total_price):
