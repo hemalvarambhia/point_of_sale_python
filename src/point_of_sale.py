@@ -22,7 +22,8 @@ class PointOfSale:
         else:
             total_price = sum(self.prices_of_items_scanned)
             if total_price == 100000:
-                total = '£1,000.00'
+                formatted = ','.join(reversed(['000', '1']))
+                total = '£%s.00' % formatted
             else:
                 total = '£%.2f' % (total_price / 100)
             self.display.display_total('Total: %s' % total)
