@@ -7,7 +7,9 @@ def format_monetary_amount(amount_in_pence):
     in_pounds = amount_in_pence / 100
     if amount_in_pence == 100000:
 
-        units = ''.join(reversed(','.join(['000', '1'])))
+        thousands_matcher = re.compile(r'\d{1,3}')
+        decomposed = thousands_matcher.findall('0001')
+        units = ''.join(reversed(','.join(decomposed)))
         subunits = '00'
         return '£%s.%s' % (units, subunits)
     else:
