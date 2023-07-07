@@ -7,9 +7,10 @@ def format_monetary_amount(amount_in_pence):
     in_pounds = amount_in_pence / 100
     if amount_in_pence >= 100000:
         amount_as_text = '%.2f' % in_pounds
-        index_of_decimal_point = 4
+        index_of_decimal_point = amount_as_text.index('.')
+        units = amount_as_text[:index_of_decimal_point]
         thousands_matcher = re.compile(r'\d{1,3}')
-        decomposed = thousands_matcher.findall('0001')
+        decomposed = thousands_matcher.findall(''.join(reversed(units)))
         units = ''.join(reversed(','.join(decomposed)))
         subunits = amount_as_text[index_of_decimal_point + 1:]
         return '£%s.%s' % (units, subunits)
@@ -36,3 +37,6 @@ class FormattingMonetaryAmountsTest(unittest.TestCase):
 
     def test_formatting_thousand_pounds_and_some_pence(self):
         self.assertEqual("£1,000.99", format_monetary_amount(100099))
+
+    def test_formatting_tens_of_thousands_pounds_exactly(self):
+        self.assertEqual("£10,000.00", format_monetary_amount(1000000))
