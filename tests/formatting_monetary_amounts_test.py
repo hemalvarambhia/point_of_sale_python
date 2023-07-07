@@ -1,6 +1,5 @@
 import unittest
 import re
-import pytest
 
 
 def format_monetary_amount(amount_in_pence):
