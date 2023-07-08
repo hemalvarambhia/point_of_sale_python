@@ -16,7 +16,7 @@ class PointOfSale:
             self.display.display_product_not_found(barcode)
         else:
             self.prices_of_items_scanned.append(price)
-            text = '£%.2f' % (price / 100)
+            text = MonetaryAmountFormatter.format_monetary_amount(price)
             self.display.display_price(text)
 
     def on_total(self):

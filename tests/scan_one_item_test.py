@@ -35,9 +35,14 @@ class ScanOneItemTest(unittest.TestCase):
 
         display.display_empty_barcode_message.assert_called()
 
-    @pytest.mark.skip(reason='Test list')
     def test_scan_an_item_worth_thousands_of_currency_units(self):
-        pass
+        display = Mock()
+        catalogue = Mock()
+        catalogue.configure_mock(**{'price_for_barcode.return_value': 100000})
+        point_of_sale_terminal = PointOfSale(catalogue, display)
+        point_of_sale_terminal.on_barcode('')
+
+        display.display_price.assert_called_with('£1,000.00')
 
 
 if __name__ == '__main__':
