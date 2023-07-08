@@ -24,15 +24,6 @@ class PointOfSale:
             self.display.display_message('Nothing scanned: please try scanning a product.')
         else:
             total_price = sum(self.prices_of_items_scanned)
-            formatted, pence = self.__formatted(total_price)
             total = MonetaryAmountFormatter.format_monetary_amount(total_price)
             self.display.display_total('Total: %s' % total)
 
-    def __formatted(self, total_price):
-        text = '%.2f' % (total_price / 100)
-        decimal_point = text.index('.')
-        thousands_units_pattern = re.compile(r'\d{1,3}')
-        reversed_pounds = ''.join(reversed(text[:decimal_point]))
-        pence = text[decimal_point + 1:]
-        formatted = ','.join(thousands_units_pattern.findall(reversed_pounds))
-        return ''.join(reversed(formatted)), pence
