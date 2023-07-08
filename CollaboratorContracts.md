@@ -1,4 +1,4 @@
-## Contracts discovered using mocks
+## Collaborator Contracts
 
 ### Catalogue:
 - item found -> Price
