@@ -16,14 +16,14 @@ class PointOfSale:
             self.display.display_product_not_found(barcode)
         else:
             self.prices_of_items_scanned.append(price)
-            text = MonetaryAmountFormatter.format_monetary_amount(price)
-            self.display.display_price(text)
+            formatted_amount = MonetaryAmountFormatter.format_monetary_amount(price)
+            self.display.display_price(formatted_amount)
 
     def on_total(self):
         if len(self.prices_of_items_scanned) == 0:
             self.display.display_message('Nothing scanned: please try scanning a product.')
         else:
             total_price = sum(self.prices_of_items_scanned)
-            total = MonetaryAmountFormatter.format_monetary_amount(total_price)
-            self.display.display_total('Total: %s' % total)
+            formatted_total = MonetaryAmountFormatter.format_monetary_amount(total_price)
+            self.display.display_total('Total: %s' % formatted_total)
 
