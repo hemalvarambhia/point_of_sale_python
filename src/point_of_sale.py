@@ -1,5 +1,5 @@
 import re
-
+from src.monetary_amount_formatter import MonetaryAmountFormatter
 
 class PointOfSale:
     def __init__(self, catalogue, display):
@@ -25,7 +25,7 @@ class PointOfSale:
         else:
             total_price = sum(self.prices_of_items_scanned)
             formatted, pence = self.__formatted(total_price)
-            total = '£%s.%s' % (formatted, pence)
+            total = MonetaryAmountFormatter.format_monetary_amount(total_price)
             self.display.display_total('Total: %s' % total)
 
     def __formatted(self, total_price):
