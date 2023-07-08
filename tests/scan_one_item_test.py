@@ -35,8 +35,8 @@ class ScanOneItemTest(unittest.TestCase):
 
         display.display_empty_barcode_message.assert_called()
 
-    @pytest.mark.skip
-    def scan_an_item_worth_thousands_of_currency_units(self):
+    @pytest.mark.skip(reason='Test list')
+    def test_scan_an_item_worth_thousands_of_currency_units(self):
         pass
 
 
