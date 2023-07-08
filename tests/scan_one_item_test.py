@@ -1,5 +1,8 @@
 import unittest
 from unittest.mock import Mock
+
+import pytest
+
 from src.point_of_sale import PointOfSale
 
 
@@ -31,6 +34,10 @@ class ScanOneItemTest(unittest.TestCase):
         point_of_sale_terminal.on_barcode('')
 
         display.display_empty_barcode_message.assert_called()
+
+    @pytest.mark.skip
+    def scan_an_item_worth_thousands_of_currency_units(self):
+        pass
 
 
 if __name__ == '__main__':
