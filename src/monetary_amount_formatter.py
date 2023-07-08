@@ -10,6 +10,6 @@ class MonetaryAmountFormatter:
         units = amount_as_text[:index_of_decimal_point]
         thousands_matcher = re.compile(r'\d{1,3}')
         decomposed = thousands_matcher.findall(''.join(reversed(units)))
-        units = ''.join(reversed(','.join(decomposed)))
+        formatted_units = ''.join(reversed(','.join(decomposed)))
         subunits = amount_as_text[index_of_decimal_point + 1:]
-        return '£%s.%s' % (units, subunits)
+        return '£%s.%s' % (formatted_units, subunits)
