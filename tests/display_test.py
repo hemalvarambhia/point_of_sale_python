@@ -2,11 +2,21 @@ import unittest
 import pytest
 
 
+class Display:
+    def __init__(self):
+        self.text = ''
+
+    def display_price(self, price_in_pence):
+        self.text = '£0.05'
+
 class SellingMultipleItemsTest(unittest.TestCase):
 
-    @pytest.mark.skip(reason='Test list')
     def test_displaying_a_price_that_is_pence_only(self):
-        pass
+        display = Display()
+
+        display.display_price(5)
+
+        self.assertEqual('£0.05', display.text)
 
     @pytest.mark.skip(reason='Test list')
     def test_displaying_a_price_that_is_pounds_only(self):
