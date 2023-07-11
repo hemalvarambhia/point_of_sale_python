@@ -15,7 +15,7 @@ class SellingMultipleItemsTest(unittest.TestCase):
 
         point_of_sale_terminal.on_total()
 
-        display.display_total.assert_called_with('Total: £1.99')
+        display.display_total.assert_called_with(199)
 
     def test_selling_an_item_that_is_not_listed_in_catalogue(self):
         display = Mock()
@@ -39,7 +39,7 @@ class SellingMultipleItemsTest(unittest.TestCase):
 
         point_of_sale_terminal.on_total()
 
-        display.display_total.assert_called_with('Total: £4.00')
+        display.display_total.assert_called_with(400)
 
     def test_selling_two_items_with_only_one_listed_in_catalogue(self):
         display = Mock()
@@ -51,7 +51,7 @@ class SellingMultipleItemsTest(unittest.TestCase):
 
         point_of_sale_terminal.on_total()
 
-        display.display_total.assert_called_with('Total: £14.99')
+        display.display_total.assert_called_with(1499)
 
     def test_selling_two_items_both_not_listed_in_catalogue(self):
         display = Mock()
@@ -74,7 +74,7 @@ class SellingMultipleItemsTest(unittest.TestCase):
 
         point_of_sale_terminal.on_total()
 
-        display.display_total.assert_called_with('Total: £1,000.00')
+        display.display_total.assert_called_with(100000)
 
     def test_selling_an_item_listed_in_catalogue_that_amounts_to_ten_thousand_currency_units(self):
         display = Mock()
@@ -85,7 +85,7 @@ class SellingMultipleItemsTest(unittest.TestCase):
 
         point_of_sale_terminal.on_total()
 
-        display.display_total.assert_called_with('Total: £15,000.99')
+        display.display_total.assert_called_with(1500099)
 
     @pytest.mark.skip(reason='Test list')
     def test_selling_an_item_listed_in_catalogue_that_amounts_to_a_hundred_thousand_currency_units(self):

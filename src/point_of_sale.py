@@ -17,7 +17,7 @@ class PointOfSale:
         else:
             self.prices_of_items_scanned.append(price)
             formatted_amount = MonetaryAmountFormatter.format_monetary_amount(price)
-            self.display.display_price(formatted_amount)
+            self.display.display_price(price)
 
     def on_total(self):
         if len(self.prices_of_items_scanned) == 0:
@@ -25,5 +25,5 @@ class PointOfSale:
         else:
             total_price = sum(self.prices_of_items_scanned)
             formatted_total = MonetaryAmountFormatter.format_monetary_amount(total_price)
-            self.display.display_total('Total: %s' % formatted_total)
+            self.display.display_total(total_price)
 

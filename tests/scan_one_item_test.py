@@ -15,7 +15,7 @@ class ScanOneItemTest(unittest.TestCase):
         point_of_sale_terminal = PointOfSale(catalogue, display)
         point_of_sale_terminal.on_barcode('12345')
 
-        display.display_price.assert_called_with('£1.99')
+        display.display_price.assert_called_with(199)
 
     def test_scanning_one_item_that_is_not_in_catalogue(self):
         display = Mock()
@@ -42,7 +42,7 @@ class ScanOneItemTest(unittest.TestCase):
         point_of_sale_terminal = PointOfSale(catalogue, display)
         point_of_sale_terminal.on_barcode('')
 
-        display.display_price.assert_called_with('£1,000.00')
+        display.display_price.assert_called_with(100000)
 
 
 if __name__ == '__main__':
