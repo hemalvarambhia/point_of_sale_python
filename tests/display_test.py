@@ -9,7 +9,7 @@ class Display:
     def display_price(self, price_in_pence):
         self.text = '£%.2f' % (price_in_pence / 100)
 
-class SellingMultipleItemsTest(unittest.TestCase):
+class DisplayTest(unittest.TestCase):
 
     def test_displaying_a_price_that_is_pence_only(self):
         display = Display()
@@ -29,7 +29,6 @@ class SellingMultipleItemsTest(unittest.TestCase):
     def test_displaying_a_price_that_is_pounds_and_pence(self):
         pass
 
-    @pytest.mark.skip(reason='Test list')
     def test_displaying_a_price_that_is_thousands_pounds_exactly(self):
         pass
 
