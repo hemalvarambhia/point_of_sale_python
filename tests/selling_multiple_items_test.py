@@ -87,9 +87,17 @@ class SellingMultipleItemsTest(unittest.TestCase):
 
         display.display_total.assert_called_with(1500099)
 
-    @pytest.mark.skip(reason='Test list')
     def test_selling_an_item_listed_in_catalogue_that_amounts_to_a_hundred_thousand_currency_units(self):
-        pass
+        display = Mock()
+        catalogue = Mock()
+        catalogue.price_for_barcode.side_effect = [7000000, 3000000]
+        point_of_sale_terminal = PointOfSale(catalogue, display)
+        point_of_sale_terminal.on_barcode('00132')
+        point_of_sale_terminal.on_barcode('10231')
+
+        point_of_sale_terminal.on_total()
+
+        display.display_total.assert_called_with(10000000)
 
 
 if __name__ == '__main__':
