@@ -16,7 +16,6 @@ class DisplayTest(unittest.TestCase):
 
         display = Display()
         for amount, expected_format in amounts_and_formats.items():
-
             display.display_price(amount)
 
             self.assertEqual(expected_format, display.text)
