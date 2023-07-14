@@ -5,7 +5,7 @@ from src.display import Display
 class DisplayTest(unittest.TestCase):
 
     def test_displaying_monetary_amounts_formatted_in_the_western_system(self):
-        amounts_and_formats = {
+        amounts_and_expected_formats = {
             5: '£0.05',
             199: '£1.99',
             1200: '£12.00',
@@ -16,7 +16,7 @@ class DisplayTest(unittest.TestCase):
         }
 
         display = Display()
-        for amount, expected_format in amounts_and_formats.items():
+        for amount, expected_format in amounts_and_expected_formats.items():
             display.display_price(amount)
 
             self.assertEqual(expected_format, display.text)
