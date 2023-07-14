@@ -1,5 +1,6 @@
 import unittest
 import pytest
+from src.monetary_amount_formatter import MonetaryAmountFormatter
 
 
 class Display:
@@ -7,7 +8,8 @@ class Display:
         self.text = ''
 
     def display_price(self, price_in_pence):
-        self.text = '£%.2f' % (price_in_pence / 100)
+        self.text = MonetaryAmountFormatter.format_monetary_amount(price_in_pence)
+
 
 class DisplayTest(unittest.TestCase):
 
@@ -30,11 +32,18 @@ class DisplayTest(unittest.TestCase):
         pass
 
     def test_displaying_a_price_that_is_thousands_pounds_exactly(self):
-        pass
+        display = Display()
 
-    @pytest.mark.skip(reason='Test list')
+        display.display_price(100000)
+
+        self.assertEqual('£1,000.00', display.text)
+
     def test_displaying_a_price_that_is_hundreds_of_thousands_pounds_exactly(self):
-        pass
+        display = Display()
+
+        display.display_price(10000000)
+
+        self.assertEqual('£100,000.00', display.text)
 
     @pytest.mark.skip(reason='Test list')
     def test_displaying_a_price_that_is_millions_of_pounds_exactly(self):
