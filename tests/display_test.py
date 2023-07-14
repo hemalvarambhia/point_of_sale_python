@@ -1,4 +1,7 @@
 import unittest
+
+import pytest
+
 from src.display import Display
 
 
@@ -20,3 +23,7 @@ class DisplayTest(unittest.TestCase):
             display.display_price(amount)
 
             self.assertEqual(expected_format, display.text)
+
+    @pytest.mark.skip(reason='Test list')
+    def test_displaying_total_monetary_amounts_formatted_in_the_western_system(self):
+        pass
