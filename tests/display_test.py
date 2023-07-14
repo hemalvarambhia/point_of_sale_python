@@ -45,6 +45,9 @@ class DisplayTest(unittest.TestCase):
 
         self.assertEqual('£100,000.00', display.text)
 
-    @pytest.mark.skip(reason='Test list')
     def test_displaying_a_price_that_is_millions_of_pounds_exactly(self):
-        pass
+        display = Display()
+
+        display.display_price(100000000)
+
+        self.assertEqual('£1,000,000.00', display.text)
