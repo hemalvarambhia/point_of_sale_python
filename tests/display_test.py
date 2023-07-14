@@ -51,3 +51,20 @@ class DisplayTest(unittest.TestCase):
         display.display_price(100000000)
 
         self.assertEqual('£1,000,000.00', display.text)
+
+    def test_displaying_monetary_amounts_formatted_in_the_western_system(self):
+        amounts_and_formats = {
+            5: '£0.05',
+            199: '£1.99',
+            1200: '£12.00',
+            112010: '£1,120.10',
+            10000091: '£100,000.91',
+            100000100: '£1,000,001.00'
+        }
+
+        display = Display()
+        for amount, expected_format in amounts_and_formats.items():
+
+            display.display_price(amount)
+
+            self.assertEqual(expected_format, display.text)
