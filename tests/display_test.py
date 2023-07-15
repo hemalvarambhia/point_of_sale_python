@@ -32,3 +32,11 @@ class DisplayTest(unittest.TestCase):
 
         expected_format = 'Total: £107,701.67'
         self.assertEqual(expected_format, display.text)
+
+    @pytest.mark.skip(reason='Test list')
+    def test_displaying_product_not_found_message(self):
+        pass
+
+    @pytest.mark.skip(reason='Test list')
+    def test_displaying_empty_barcode_message(self):
+        pass
