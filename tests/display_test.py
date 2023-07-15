@@ -24,6 +24,11 @@ class DisplayTest(unittest.TestCase):
 
             self.assertEqual(expected_format, display.text)
 
-    @pytest.mark.skip(reason='Test list')
     def test_displaying_total_monetary_amounts_formatted_in_the_western_system(self):
-        pass
+        display = Display()
+        total = 10770167
+
+        display.display_total(total)
+
+        expected_format = 'Total: £107,701.67'
+        self.assertEqual(expected_format, display.text)
