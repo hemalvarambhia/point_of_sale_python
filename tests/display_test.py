@@ -40,6 +40,9 @@ class DisplayTest(unittest.TestCase):
 
         self.assertEqual('Product not found for barcode 54321', display.text)
 
-    @pytest.mark.skip(reason='Test list')
     def test_displaying_empty_barcode_message(self):
-        pass
+        display = Display()
+
+        display.display_empty_barcode_message()
+
+        self.assertEqual('Empty barcode detected', display.text)

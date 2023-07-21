@@ -12,3 +12,6 @@ class Display:
     def display_total(self, total_in_pence):
         formatted_monetary_amount = MonetaryAmountFormatter.format_monetary_amount(total_in_pence)
         self.text = 'Total: %s' % formatted_monetary_amount
+
+    def display_empty_barcode_message(self):
+        self.text = 'Empty barcode detected'
