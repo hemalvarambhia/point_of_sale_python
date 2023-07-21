@@ -2,7 +2,7 @@ import unittest
 import pytest
 
 
-class InMemoryCatalogueTest(unittest.TestCase):
+class InMemoryProductCatalogueTest(unittest.TestCase):
 
     @pytest.mark.skip(reason='Test list')
     def test_product_listed_in_catalogue(self):
