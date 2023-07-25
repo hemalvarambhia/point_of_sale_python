@@ -4,9 +4,9 @@ import re
 class MonetaryAmountFormatter:
     @staticmethod
     def format_monetary_amount(amount_in_pence):
-        return MonetaryAmountFormatter().format(amount_in_pence)
+        return MonetaryAmountFormatter('£').format(amount_in_pence)
 
-    def __init__(self, currency='£'):
+    def __init__(self, currency):
         self.currency = currency
 
     def format(self, amount_in_subunits):
