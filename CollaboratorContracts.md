@@ -2,7 +2,7 @@
 
 ### Catalogue:
 - ~~item found -> Price~~
-- item not found -> nil
+- ~~item not found -> nil~~
 
 ### Display
 - ~~display_price(price) -> command~~

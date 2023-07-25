@@ -12,6 +12,7 @@ class InMemoryProductCatalogueTest(unittest.TestCase):
         catalogue = Catalogue({'98765': 30000})
         self.assertEqual(30000, catalogue.price_for_barcode('98765'))
 
-    @unittest.skip('Test list')
     def test_finding_no_price_when_product_is_not_in_catalogue(self):
-        pass
+        catalogue = Catalogue({'65789': 30000})
+
+        self.assertEqual(None, catalogue.price_for_barcode('11111'))

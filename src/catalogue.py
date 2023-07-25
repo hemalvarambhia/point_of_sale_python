@@ -3,4 +3,4 @@ class Catalogue:
         self.prices_by_barcode = prices_by_barcode
 
     def price_for_barcode(self, barcode):
-        return self.prices_by_barcode[barcode]
+        return self.prices_by_barcode.get(barcode, None)
