@@ -1,6 +1,5 @@
 import unittest
 from unittest.mock import Mock
-import pytest
 from src.point_of_sale import PointOfSale
 
 
