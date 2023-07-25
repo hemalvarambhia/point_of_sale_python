@@ -1,6 +1,6 @@
 class Catalogue:
     def __init__(self, prices_by_barcode):
-        pass
+        self.prices_by_barcode = prices_by_barcode
 
     def price_for_barcode(self, barcode):
-        return 199
+        return self.prices_by_barcode[barcode]
