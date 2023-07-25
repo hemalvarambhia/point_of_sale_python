@@ -5,10 +5,10 @@ from src.monetary_amount_formatter import WesternMonetaryAmountFormatter
 class FormattingMonetaryAmountsTest(unittest.TestCase):
 
     def test_formatting_amounts_under_ten_pence(self):
-        self.assertEqual("£0.09", WesternMonetaryAmountFormatter.format_monetary_amount(9))
+        self.assertEqual("£0.09", WesternMonetaryAmountFormatter('£').format(9))
 
     def test_formatting_amounts_between_nine_pence_and_under_1_pound(self):
-        self.assertEqual("£0.19", WesternMonetaryAmountFormatter.format_monetary_amount(19))
+        self.assertEqual("£0.19", WesternMonetaryAmountFormatter('£').format(19))
 
     def test_formatting_exactly_one_pound(self):
         self.assertEqual("£1.00", WesternMonetaryAmountFormatter.format_monetary_amount(100))
