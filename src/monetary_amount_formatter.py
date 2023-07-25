@@ -6,6 +6,9 @@ class MonetaryAmountFormatter:
     def format_monetary_amount(amount_in_pence):
         return MonetaryAmountFormatter().format(amount_in_pence)
 
+    def __init__(self):
+        self.currency = '£'
+
     def format(self, amount_in_pence):
         in_pounds = amount_in_pence / 100
         amount_as_text = '%.2f' % in_pounds
@@ -15,5 +18,4 @@ class MonetaryAmountFormatter:
         decomposed = thousands_matcher.findall(''.join(reversed(units)))
         formatted_units = ''.join(reversed(','.join(decomposed)))
         subunits = amount_as_text[index_of_decimal_point + 1:]
-        currency = '£'
-        return '%s%s.%s' % (currency, formatted_units, subunits)
+        return '%s%s.%s' % (self.currency, formatted_units, subunits)
