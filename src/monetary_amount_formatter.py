@@ -6,7 +6,7 @@ class MonetaryAmountFormatter:
     def format_monetary_amount(amount_in_pence):
         return MonetaryAmountFormatter().format(amount_in_pence)
 
-    def __init__(self):
+    def __init__(self, currency='£'):
         self.currency = '£'
 
     def format(self, amount_in_pence):
