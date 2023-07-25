@@ -1,7 +1,7 @@
 ## Collaborator Contracts
 
 ### Catalogue:
-- item found -> Price
+- ~~item found -> Price~~
 - item not found -> nil
 
 ### Display
