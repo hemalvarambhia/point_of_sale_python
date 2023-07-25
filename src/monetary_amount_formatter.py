@@ -12,4 +12,5 @@ class MonetaryAmountFormatter:
         decomposed = thousands_matcher.findall(''.join(reversed(units)))
         formatted_units = ''.join(reversed(','.join(decomposed)))
         subunits = amount_as_text[index_of_decimal_point + 1:]
-        return '£%s.%s' % (formatted_units, subunits)
+        currency = '£'
+        return '%s%s.%s' % (currency, formatted_units, subunits)
