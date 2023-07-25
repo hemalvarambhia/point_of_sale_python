@@ -9,9 +9,9 @@ class MonetaryAmountFormatter:
     def __init__(self, currency='£'):
         self.currency = '£'
 
-    def format(self, amount_in_pence):
-        in_pounds = amount_in_pence / 100
-        amount_as_text = '%.2f' % in_pounds
+    def format(self, amount_in_subunits):
+        in_currency_units = amount_in_subunits / 100
+        amount_as_text = '%.2f' % in_currency_units
         index_of_decimal_point = amount_as_text.index('.')
         units = amount_as_text[:index_of_decimal_point]
         thousands_matcher = re.compile(r'\d{1,3}')
