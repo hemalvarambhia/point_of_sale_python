@@ -1,5 +1,5 @@
 import re
-from src.monetary_amount_formatter import MonetaryAmountFormatter
+from src.monetary_amount_formatter import WesternMonetaryAmountFormatter
 
 class PointOfSale:
     def __init__(self, catalogue, display):

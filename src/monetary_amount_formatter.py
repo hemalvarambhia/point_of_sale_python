@@ -1,10 +1,10 @@
 import re
 
 
-class MonetaryAmountFormatter:
+class WesternMonetaryAmountFormatter:
     @staticmethod
     def format_monetary_amount(amount_in_pence):
-        return MonetaryAmountFormatter('£').format(amount_in_pence)
+        return WesternMonetaryAmountFormatter('£').format(amount_in_pence)
 
     def __init__(self, currency):
         self.currency = currency
